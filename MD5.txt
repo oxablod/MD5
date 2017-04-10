@@ -1,0 +1,38 @@
+uses
+IdHashMessageDigest,
+  IdHash
+  
+  
+    
+ function MD5String(const Value: string): string;
+  
+  
+  function MD5(const texto: string): string;
+var
+  idmd5: TIdHashMessageDigest5;
+begin
+  idmd5 := TIdHashMessageDigest5.Create;
+  try
+    result := idmd5.HashStringAsHex(texto);
+  finally
+    idmd5.Free;
+  end;
+end;
+
+
+
+function MD5String(const Value: string): string;
+var
+  xMD5: TIdHashMessageDigest5;
+begin
+  xMD5 := TIdHashMessageDigest5.Create;
+  try
+    result := xMD5.HashStringAsHex(Value);
+  finally
+    xMD5.Free;
+  end;
+end;
+
+
+
+MD5(edSenha.Text)
